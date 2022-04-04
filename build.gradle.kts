@@ -2,8 +2,7 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
     kotlin("jvm") version "1.3.21"
-    id("com.commercehub.gradle.plugin.avro") version "0.16.0"
-    id("com.github.hierynomus.license") version "0.15.0"
+    id("com.github.davidmc24.gradle.plugin.avro") version "1.0.0"
     application
 }
 
@@ -21,7 +20,8 @@ repositories {
 dependencies {
     implementation(kotlin("stdlib-jdk8"))
     implementation("com.github.ajalt:clikt:1.7.0")
-    compile("org.apache.avro:avro:1.8.2")
+    implementation("org.apache.avro:avro:1.11.0")
+    compile("org.apache.avro:avro:1.11.0")
     compile("org.jline:jline:3.10.0")
 
     testCompile("org.junit.jupiter:junit-jupiter-api:5.4.0")
@@ -39,8 +39,4 @@ tasks.withType<Test> {
     systemProperties = mapOf(
         "junit.jupiter.testinstance.lifecycle.default" to "per_class"
     )
-}
-
-license {
-    header = file("HEADER")
 }
